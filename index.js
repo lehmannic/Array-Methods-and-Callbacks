@@ -1,31 +1,43 @@
 import { fifaData } from './fifa.js';
-console.log(fifaData);
-
+// console.log(fifaData);
 
 // ⚽️ M  V P ⚽️ //
 
-/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data 
+/* Task 1: Investigate the data above. Practice accessing data by console.log-ing the following pieces of data */
+const final2014 = fifaData.filter( fifa => (fifa.Year===2014 && fifa.Stage==="Final"));
 
-(a) Home Team name for 2014 world cup final
-(b) Away Team name for 2014 world cup final
-(c) Home Team goals for 2014 world cup final
-(d) Away Team goals for 2014 world cup final
-(e) Winner of 2014 world cup final */
+// (a) Home Team name for 2014 world cup final
+// console.log(final2014.map(final => final["Home Team Name"])); 
+console.log(final2014[0]["Home Team Name"]); 
+// (b) Away Team name for 2014 world cup final
+// console.log(final2014.map( final => final["Away Team Name"])); 
+console.log(final2014[0]["Away Team Name"]);
+// (c) Home Team goals for 2014 world cup final
+// console.log(final2014.map(final => final["Home Team Goals"]));
+console.log(final2014[0]["Home Team Goals"])
+// (d) Away Team goals for 2014 world cup final
+// console.log(final2014.map(final => final["Away Team Goals"]));
+console.log(final2014[0]["Away Team Goals"]); 
+// (e) Winner of 2014 world cup final
+// console.log(final2014.map(final => final["Win conditions"])); 
+console.log(final2014[0]["Win conditions"])
+
 
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-
-    /* code here */
-
+function getFinals(data) {
+    const final = fifaData.filter( fifa => (fifa.Stage==="Final"));
+    return final; 
 };
+
+// console.log(getFinals(fifaData));
 
 /* Task 3: Impliment a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
+function getYears(){
 
-    /* code here */
+
 
 };
 
