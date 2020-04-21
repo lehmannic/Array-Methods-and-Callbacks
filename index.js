@@ -80,6 +80,17 @@ function getWinners(data, getFinals) {
 
 console.log(getWinners(fifaData, getFinals)); 
 
+
+
+
+
+
+
+
+
+
+
+
 /* Task 6: Implement a higher-order function called `getWinnersByYear` that accepts the following parameters and returns a set of strings "In {year}, {country} won the world cup!" 
 
 Parameters: 
@@ -87,11 +98,38 @@ Parameters:
  * callback function getYears
  */
 
-function getAllWinners(/* code here */) {
+function getAllWinners(data, getWinners, getYears) {
+    let allWinners = [];
+    let years = getYears(data, getFinals); 
+    console.log(years); 
+    let winners = getWinners(data, getFinals); 
+  
 
+
+    years.forEach(item => allWinners.push(`In ${item},`));
+    winners.forEach(item => allWinners.push(` ${item} won the World Cup!`)); 
+    
+    return allWinners; 
 };
 
-getAllWinners();
+console.log(getAllWinners(fifaData, getWinners, getYears));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Task 7: Create a function called `getCountryWins` that takes the parameters `data` and `team initials` and returns the number of world cup wins that country has had. 
 
@@ -107,6 +145,10 @@ function getCountryWins(/* code here */) {
 getCountryWins();
 
 
+
+
+
+
 /* Task 8: Write a function called getGoals() that accepts a parameter `data` and returns the team with the most goals score per appearance (average goals for) in the World Cup finals */
 
 function getGoals(/* code here */) {
@@ -118,6 +160,11 @@ function getGoals(/* code here */) {
 getGoals();
 
 
+
+
+
+
+
 /* Task 9: Write a function called badDefense() that accepts a parameter `data` and calculates the team with the most goals scored against them per appearance (average goals against) in the World Cup finals */
 
 function badDefense(/* code here */) {
@@ -127,6 +174,11 @@ function badDefense(/* code here */) {
 };
 
 badDefense();
+
+
+
+
+
 
 
 /* Task 10: Write a function called `getAverageGoals` that accepts a parameter `data` and returns the the average number of home team goals and away team goals scored per match (Hint: use .reduce and do this in 2 steps) */
