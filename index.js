@@ -51,14 +51,14 @@ function getYears( data, getFinals){
 /* Task 5: Impliment a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
 function getWinners(data, getFinals) {
-    let winners = []; 
-    const result = getFinals(data); 
+
+    const result = getFinals(data);
+    const winners = []; 
 
     // look through each item in result
     // if home team goals > away team goal, push Home Team Name
     // if away team goals > home team goals, push Away Team Name
     // if home team goals === away team goals, check win conditions and push team name
-
     result.forEach(item => {
         // console.log(`${item['Home Team Name']} ${item['Home Team Goals']} ${item['Away Team Name']} ${item['Away Team Goals']}`)
 
@@ -67,11 +67,9 @@ function getWinners(data, getFinals) {
         } else if (item['Away Team Goals'] > item['Home Team Goals']) {
             winners.push(`${item['Away Team Name']}`)
         } else if (item['Home Team Goals'] === item['Away Team Goals']) {
-            // console.log(item['Win conditions']); 
             let winner = item['Win conditions'].split(' ', 1);
             winners.push(`${winner}`);
         }
-
     });
 
 
@@ -109,7 +107,7 @@ function getAllWinners(data, getWinners, getYears) {
     // found this (below) and realized I could use ${} to make the string whatever I want
     // https://stackoverflow.com/questions/43170806/merge-multiple-arrays-based-on-their-index-using-javascript
 
-    let allWinners = years.map((e,i) => `In ${e}, ${winners[i]} won the world cup!`); 
+    let allWinners = years.map((year,i) => `In ${year}, ${winners[i]} won the world cup!`); 
     
     return allWinners; 
 };
